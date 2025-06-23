@@ -3,8 +3,8 @@
 
 - 🌱 I’m currently learning **DevOps, CI/CD piplines, Testing, Cloud Computing**
 - 👯 I’m looking to collaborate on **Open Source Software Projects**
-- 🤝 I’m looking for help with **Problem Solving, System design, Solution Implementation**
-- 💬 Ask me about **JavaScript, Python, Problem Solving or anything tech-related**
+- 🤝 I wanna help learners related to **Problem Solving, System design and Solution Implementation**
+- 💬 Feel free to ask me about **JavaScript, Python, Problem Solving or anything tech-related topic**
 - 📫 How to reach me: **sajidurrahmansahib@gmail.com**
 - 😄 Pronouns: **He/Him**
 - ⚡ Fun fact: **Think BIG, Solve Small. My approach might seem extravagant, but I'm thorough. I like to explore all possibilities, even if the final solution is surprisingly simple. I'm visually dramatic. I like my solutions to make a statement, even if the core issue is tiny!**
