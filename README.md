@@ -94,12 +94,12 @@ Using AI for code assistance, debugging, and documentation
 `Free hosting: the server sleeps after ~15 minutes idle, so the first visit can take up to a minute to wake it.`
 
 <small><b>Demo accounts</b></small>
-| <small>Role</small>                        | <small>Email</small>                     | <small>Password</small>      |
+| <small>Role</small> | <small>Email</small> | <small>Password</small> |
 | ------------------------------------------ | ---------------------------------------- | ---------------------------- |
-| <small>Customer</small>                    | <small>`customer@shebaghor.dev`</small>  | <small>`password123`</small> |
-| <small>Provider</small>                    | <small>`rahim@shebaghor.dev`</small>     | <small>`password123`</small> |
+| <small>Customer</small> | <small>`customer@shebaghor.dev`</small> | <small>`password123`</small> |
+| <small>Provider</small> | <small>`rahim@shebaghor.dev`</small> | <small>`password123`</small> |
 | <small>Provider (not approved yet)</small> | <small>`pending@homeservice.dev`</small> | <small>`password123`</small> |
-| <small>Admin</small>                       | <small>`admin@shebaghor.dev`</small>     | <small>`password123`</small> |
+| <small>Admin</small> | <small>`admin@shebaghor.dev`</small> | <small>`password123`</small> |
 
 <small>The login page also has one-click demo buttons.</small>
 
@@ -118,9 +118,38 @@ Using AI for code assistance, debugging, and documentation
 
 </details>
 <details>
-<summary><b>Next</b></summary>
+<summary><b>ShopStock</b></summary>
 
-<small>Upcoming...</small>
+<small>🔗 <a href="https://shopstock-sajidur.onrender.com/"><b>Live demo</b></a></small>
+<br>
+<small>🔗 <a href="https://github.com/sajidur319370/shopstock"><b>code</b></a></small>
+
+<small>Multi-branch inventory and point of sale for a small grocery chain in Dhaka. Cashiers ring up sales with a barcode scanner and the keyboard and print receipts; managers take returns, order from suppliers, receive deliveries and move stock between branches; the owner sees live dashboards and monthly reports for every branch. Every stock change is recorded as a movement, and the stock always reconciles.</small>
+
+Free hosting: the server sleeps after ~15 minutes idle, so the first visit can take up to a minute to wake it.
+
+<small><b>Demo accounts</b></small>
+| <small>Role</small> | <small>Email</small> | <small>Password</small> |
+| ------------------------------------------- | --------------------------------------------- | ---------------------------- |
+| <small>Owner (all 3 branches)</small> | <small>owner@demo.shopstock.dev</small> | <small>ShopStock2026</small> |
+| <small>Manager (Gulshan)</small> | <small>manager.gul@demo.shopstock.dev</small> | <small>ShopStock2026</small> |
+| <small>Manager (Dhanmondi + Uttara)</small> | <small>manager.dhn@demo.shopstock.dev</small> | <small>ShopStock2026</small> |
+| <small>Cashier (Gulshan)</small> | <small>cashier.gul@demo.shopstock.dev</small> | <small>ShopStock2026</small> |
+
+<small>60 days of seeded history: about 10,500 sales, plus purchase orders, transfers and returns across 3 branches. Demo logins can run the shop (sell, return, order, receive, transfer, run reports) but can't change passwords or the shared setup (settings, branches, staff, catalog, suppliers), so that setup stays intact for the next visitor.</small>
+
+<small><b>Tech stack</b></small>
+
+| <small>Layer</small>        | <small>Choice</small>                                                                                                                                                                                                                   |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <small>Language</small>     | <small>TypeScript (strict) end to end · an npm-workspaces monorepo with one shared package (Zod schemas, permissions, the pricing engine)</small>                                                                                       |
+| <small>Server</small>       | <small>Node 26 · Express 5 · Mongoose 9 · zod · JWT access tokens + rotating refresh cookies · pino · helmet (strict CSP, HSTS)</small>                                                                                                 |
+| <small>Database</small>     | <small>MongoDB Atlas (replica set) · multi-document transactions · conditional updates so stock can't go negative · aggregation pipelines for reports ($facet, $unionWith, $densify, $setWindowFields)</small>                          |
+| <small>Client</small>       | <small>React 19 · React Router · Vite · Tailwind · TanStack Query · react-hook-form · Recharts (lazy-loaded)</small>                                                                                                                    |
+| <small>Tests</small>        | <small>Vitest: 482 tests (399 API integration on an in-memory replica set, incl. concurrency races and a 500-operation random invariant test) · Playwright E2E + axe accessibility checks · a 10-cashier load test (p95 158 ms)</small> |
+| <small>CI / Hosting</small> | <small>GitHub Actions (lint, typecheck, tests, 100% branch coverage on pricing, build, Playwright) · one Render web service serves the API and the React app</small>                                                                    |
+
+<small>The hard parts: two cashiers selling the last item (exactly one wins), retries after a dropped connection (never a double sale), gap-free invoice numbers, average-cost accounting, and branch isolation (another branch's data is always a 404).</small>
 
 </details>
 
